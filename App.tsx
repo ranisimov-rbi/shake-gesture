@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from 'react';
-import ShakeEventExpo from './utils/ShakeEvent';
+import ShakeEventExpo from './utils/shakeEvent';
 
 export default function App() {
   const [bgColor, setBgColor] = useState('#f4f4f4')
