@@ -21,7 +21,7 @@ export default function App() {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: `linear-gradient`
+      backgroundColor: bgColor,
     },
     text: {
       fontWeight: '500',
