@@ -1,20 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import ShakeEventExpo from './utils/ShakeEvent';
 
 export default function App() {
+  const [bgColor, setBgColor] = useState('#f4f4f4')
+  const [times, setTimes] = useState(0)
+
+  const randomBgColor = () => {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    setBgColor('#' + randomColor)
+  }
+
+  useEffect(() => {
+    ShakeEventExpo.addListener(randomBgColor)
+
+    return () =>  ShakeEventExpo.removeListener();
+  }, []);
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: `linear-gradient`
+    },
+    text: {
+      fontWeight: '500',
+      fontSize: 24,
+      letterSpacing: .25,
+    }
+  });
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+        <Text style={styles.text}>Shake device</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
