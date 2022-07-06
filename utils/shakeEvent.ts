@@ -28,7 +28,8 @@ export default class ShakeEventExpo {
       }
     });
   }
+
   static removeListener() {
-  Accelerometer.removeAllListeners()
+    Accelerometer.removeAllListeners()
   }
 };

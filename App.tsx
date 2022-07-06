@@ -4,7 +4,6 @@ import ShakeEventExpo from './utils/ShakeEvent';
 
 export default function App() {
   const [bgColor, setBgColor] = useState('#f4f4f4')
-  const [times, setTimes] = useState(0)
 
   const randomBgColor = () => {
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
